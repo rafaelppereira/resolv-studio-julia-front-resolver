@@ -5,6 +5,7 @@ import { Dropzone } from '@/components/Dropzone';
 import { LayoutDefault } from '@/layouts/Default';
 import { CaretLeft, CaretRight } from 'phosphor-react';
 import { PersonaSelect } from '@/components/persona/PersonaSelector';
+import { Tag } from '@/components/Tag';
 
 export default function CreatePersona() {
   const [step, setStep] = useState(1);
@@ -73,9 +74,7 @@ export default function CreatePersona() {
 
           {step === 1 ? (
             <div className="flex-[1.5] p-5 overflow-y-auto">
-              <h1 className="text-3xl text-zinc-200 font-semibold">
-                Sobre a persona
-              </h1>
+              <h1 className="text-3xl text-zinc-200 font-semibold">Sobre</h1>
 
               <p className="max-w-md mt-1 text-zinc-400 text-md">
                 De vida à sua persona que se encaixe perfeitamente no seu fluxo
@@ -148,12 +147,12 @@ export default function CreatePersona() {
           ) : step === 2 ? (
             <div className="flex-[1.5] p-5 overflow-y-auto">
               <h1 className="text-3xl text-zinc-200 font-semibold">
-                Persona da persona
+                Personalidade
               </h1>
 
               <p className="max-w-md mt-1 text-zinc-400 text-md">
-                De vida à sua persona que ela/ele se encaixe perfeitamente no
-                seu fluxo .
+                De vida à sua persona que se encaixe perfeitamente no seu fluxo
+                e faça você criar incrível.
               </p>
 
               <div className="mt-4">
@@ -278,10 +277,167 @@ export default function CreatePersona() {
               </div>
             </div>
           ) : step === 3 ? (
-            <div className="flex-[1.5] p-5 overflow-y-auto">STEP</div>
+            <div className="flex-[1.5] p-5 overflow-y-auto">
+              <h1 className="text-3xl text-zinc-200 font-semibold">
+                Motivações
+              </h1>
+
+              <p className="max-w-md mt-1 text-zinc-400 text-md">
+                De vida à sua persona que se encaixe perfeitamente no seu fluxo
+                e faça você criar incrível.
+              </p>
+
+              <div className="flex flex-col gap-3 mt-4">
+                <div>
+                  <label className="text-zinc-400 text-sm">Arquétipo</label>
+                  <select className="w-full h-11 mt-2 rounded-md px-3 bg-zinc-600 text-sm text-zinc-300">
+                    <option value="">Selecione um arquétipo</option>
+                    <option value="Herói">Herói</option>
+                    <option value="Cuidador">Cuidador</option>
+                    <option value="Explorador">Explorador</option>
+                    <option value="Inocente">Inocente</option>
+                    <option value="Sábio">Sábio</option>
+                    <option value="Ladrão">Ladrão</option>
+                    <option value="Mago">Mago</option>
+                    <option value="Amante">Amante</option>
+                    <option value="Brincalhão">Brincalhão</option>
+                    <option value="Criativo">Criativo</option>
+                    <option value="Governante">Governante</option>
+                    <option value="Garoto/Garota normal">
+                      Garoto/Garota normal
+                    </option>
+                  </select>
+                </div>
+
+                <div className="mt-4">
+                  <div className="flex items-center justify-between text-sm text-zinc-400">
+                    <h1>Pouco controlado</h1>
+                    <h1>Muito controlado</h1>
+                  </div>
+
+                  <input
+                    min={1}
+                    max={5}
+                    step={1}
+                    value={3}
+                    type="range"
+                    className="w-full mt-2 h-5 appearance-none rounded-md bg-zinc-700"
+                  />
+                </div>
+
+                <div className="mt-4">
+                  <div className="flex items-center justify-between text-sm text-zinc-400">
+                    <h1>Pouco divertido</h1>
+                    <h1>Muito divertido</h1>
+                  </div>
+
+                  <input
+                    min={1}
+                    max={5}
+                    step={1}
+                    value={3}
+                    type="range"
+                    className="w-full mt-2 h-5 appearance-none rounded-md bg-zinc-700"
+                  />
+                </div>
+
+                <div className="mt-4">
+                  <div className="flex items-center justify-between text-sm text-zinc-400">
+                    <h1>Pouco curioso</h1>
+                    <h1>Muito curioso</h1>
+                  </div>
+
+                  <input
+                    min={1}
+                    max={5}
+                    step={1}
+                    value={3}
+                    type="range"
+                    className="w-full mt-2 h-5 appearance-none rounded-md bg-zinc-700"
+                  />
+                </div>
+
+                <div className="mt-4">
+                  <div className="flex items-center justify-between text-sm text-zinc-400">
+                    <h1>Pouco famoso</h1>
+                    <h1>Muito famoso</h1>
+                  </div>
+
+                  <input
+                    min={1}
+                    max={5}
+                    step={1}
+                    value={3}
+                    type="range"
+                    className="w-full mt-2 h-5 appearance-none rounded-md bg-zinc-700"
+                  />
+                </div>
+
+                <div className="mt-4">
+                  <div className="flex items-center justify-between text-sm text-zinc-400">
+                    <h1>Pouco amigável</h1>
+                    <h1>Muito amigável</h1>
+                  </div>
+
+                  <input
+                    min={1}
+                    max={5}
+                    step={1}
+                    value={3}
+                    type="range"
+                    className="w-full mt-2 h-5 appearance-none rounded-md bg-zinc-700"
+                  />
+                </div>
+              </div>
+            </div>
           ) : (
             step === 4 && (
-              <div className="flex-[1.5] p-5 overflow-y-auto">STEP</div>
+              <div className="flex-[1.5] p-5 overflow-y-auto flex flex-col justify-center">
+                <h1 className="text-3xl text-zinc-200 font-semibold">
+                  Detalhes essenciais
+                </h1>
+
+                <p className="max-w-md mt-1 text-zinc-400 text-md">
+                  De vida à sua persona que se encaixe perfeitamente no seu
+                  fluxo e faça você criar incrível.
+                </p>
+
+                <div className="flex flex-col gap-3 mt-4">
+                  <div>
+                    <label className="text-zinc-400 text-sm">Ocupação</label>
+                    <input
+                      type="text"
+                      placeholder="Digite a ocupação da sua persona"
+                      className="w-full h-11 mt-2 rounded-md px-3 bg-zinc-600 text-sm text-zinc-300"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-zinc-400 text-sm">Localização</label>
+                    <input
+                      type="text"
+                      placeholder="Digite a localização da sua persona"
+                      className="w-full h-11 mt-2 rounded-md px-3 bg-zinc-600 text-sm text-zinc-300"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="text-zinc-400 text-sm">
+                      Estado cívil
+                    </label>
+                    <select className="w-full h-11 mt-2 rounded-md px-3 bg-zinc-600 text-sm text-zinc-300">
+                      <option value="">Selecione uma empresa</option>
+                      <option value="Solteiro">Solteiro</option>
+                      <option value="Casado">Casado</option>
+                      <option value="Divorciado">Divorciado</option>
+                      <option value="Viúvo">Viúvo</option>
+                      <option value="Separado">Separado</option>
+                    </select>
+                  </div>
+
+                  <Tag title="Metas" />
+                </div>
+              </div>
             )
           )}
         </div>

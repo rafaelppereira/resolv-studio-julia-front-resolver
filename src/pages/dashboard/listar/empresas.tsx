@@ -53,7 +53,7 @@ export default function Companies({ companies }: CompaniesProps) {
           />
 
           <div className="flex items-start gap-4">
-            {organization.limits && (
+            {organization && (
               <ProgressBar
                 current={totalItems}
                 max={organization.limits.companies}

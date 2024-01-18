@@ -57,7 +57,7 @@ export default function Personas({ personas }: PersonasProps) {
           />
 
           <div className="flex items-start gap-4">
-            {organization.limits && (
+            {organization && (
               <ProgressBar
                 current={totalItems}
                 max={organization.limits.personas}

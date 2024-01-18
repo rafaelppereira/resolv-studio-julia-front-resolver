@@ -8,6 +8,7 @@ import { useRouter } from 'next/router';
 import { GetServerSideProps } from 'next';
 import { UserProps } from '@/utils/interfaces/user.interface';
 import { useAuth } from '@/hooks/useAuth';
+import { NextResponse } from 'next/server';
 
 interface AuthProcessProps {
   user: UserProps;
@@ -35,7 +36,10 @@ export default function AuthProcess({ user, token }: AuthProcessProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ query }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  query,
+  res,
+}) => {
   const { token } = query;
 
   let user: UserProps | null = null;

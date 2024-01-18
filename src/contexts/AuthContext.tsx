@@ -13,7 +13,7 @@ interface AuthContextData {
   hasLoadingUser: boolean;
   handleLogout: () => void;
   setUser: Dispatch<UserProps>;
-  organization: OrganizationProps;
+  organization: OrganizationProps | null;
 }
 
 interface AuthProviderProps {
@@ -24,7 +24,9 @@ export const AuthContext = createContext({} as AuthContextData);
 
 export function AuthProvider({ children }: AuthProviderProps) {
   const [user, setUser] = useState({} as UserProps);
-  const [organization, setOrganization] = useState({} as OrganizationProps);
+  const [organization, setOrganization] = useState<OrganizationProps | null>(
+    null
+  );
   const { pathname, push } = useRouter();
 
   const [hasLoadingUser, setHasLoadingUser] = useState(false);
@@ -37,7 +39,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
       setUser(data);
       setHasLoadingUser(false);
 
-      await handleGetOrganization(data.lastOrganization);
+      if (!organization) {
+        await handleGetOrganization(data.lastOrganization);
+      }
     } catch (err) {
       console.log(err);
     }
@@ -46,6 +50,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
   async function handleGetOrganization(organizationId: string) {
     try {
       const { data } = await api.get(`/organization/${organizationId}`);
+      console.log(data);
       setOrganization(data);
     } catch (err) {
       console.log(err);
