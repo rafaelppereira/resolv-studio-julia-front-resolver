@@ -14,7 +14,10 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@/utils": ["./src/utils/*"],
+      "@/contexts": ["./src/contexts/*"],
+      "@/hooks": ["./src/hooks/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
